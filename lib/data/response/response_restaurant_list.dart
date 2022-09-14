@@ -6,11 +6,12 @@ class ResponseRestaurantList {
   int count;
   List<Restaurant> restaurants;
 
-  ResponseRestaurantList(
-      {required this.error,
-      required this.message,
-      required this.count,
-      required this.restaurants});
+  ResponseRestaurantList({
+    required this.error,
+    required this.message,
+    required this.count,
+    required this.restaurants,
+  });
 
   factory ResponseRestaurantList.fromJson(Map<String, dynamic> json) =>
       ResponseRestaurantList(
@@ -18,6 +19,7 @@ class ResponseRestaurantList {
         message: json['message'],
         count: json['count'],
         restaurants: List<Restaurant>.from(
-            json['restaurants'].map((x) => Restaurant.fromJson(x))),
+          json['restaurants'].map((x) => Restaurant.fromJson(x)),
+        ),
       );
 }

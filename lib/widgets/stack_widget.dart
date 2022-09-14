@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_restaurant/data/model/restaurant.dart';
+import 'package:my_restaurant/ui/restaurant_review_page.dart';
 import 'package:my_restaurant/utils/styles.dart';
 
 Widget stackWidget(BuildContext context, Restaurant restaurant) {
@@ -52,9 +53,7 @@ Widget stackWidget(BuildContext context, Restaurant restaurant) {
                       Text(
                         restaurant.city,
                         style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400
-                        ),
+                            color: Colors.white, fontWeight: FontWeight.w400),
                       ),
                       const SizedBox(width: 50),
                       const Icon(
@@ -66,9 +65,7 @@ Widget stackWidget(BuildContext context, Restaurant restaurant) {
                       Text(
                         restaurant.rating.toString(),
                         style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400
-                        ),
+                            color: Colors.white, fontWeight: FontWeight.w400),
                       )
                     ],
                   ),
@@ -96,7 +93,11 @@ Widget stackWidget(BuildContext context, Restaurant restaurant) {
         top: 40.0,
         child: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pushNamed(
+              context,
+              RestaurantReviewPage.routeName,
+              arguments: restaurant.review,
+            );
           },
           child: const Icon(
             Icons.chat_bubble_outline_outlined,

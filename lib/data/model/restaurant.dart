@@ -12,8 +12,8 @@ class Restaurant {
   String pictureId;
   double rating;
   List<Categories>? categories;
-  // Menus? menus;
-  // List<Review>? review;
+  Menus? menus;
+  List<Review>? review;
 
   Restaurant(
       {required this.id,
@@ -23,7 +23,9 @@ class Restaurant {
       required this.address,
       required this.pictureId,
       required this.rating,
-      required this.categories
+      required this.categories,
+      required this.menus,
+      required this.review
   });
 
   factory Restaurant.fromJson(Map<String, dynamic> json) => Restaurant(
@@ -37,20 +39,12 @@ class Restaurant {
       categories: json['categories'] == null
           ? null
           : List<Categories>.from(
-              json['categories'].map((x) => Categories.fromJson(x))));
-
-      // menus: json['menus'] == null
-      //     ? null
-      //     : Menus.fromJson(json['menus'].map((x) => Menus.fromJson(x))),
-
-      // review: json['customerReviews'] == null
-      //     ? null
-      //     : List<Review>.from(
-      //         json['customerReviews'].map((x) => Review.fromJson(x))));
-
-  String getSmallImage() => Constants.IMAGE_SML + pictureId;
+              json['categories'].map((x) => Categories.fromJson(x))),
+      menus: json['menus'] == null ? null : Menus.fromJson(json['menus']),
+      review: json['customerReviews'] == null
+          ? null
+          : List<Review>.from(
+              json['customerReviews'].map((x) => Review.fromJson(x))));
 
   String getMediumImage() => Constants.IMAGE_MED + pictureId;
-
-  String getLargeImage() => Constants.IMAGE_LRG + pictureId;
 }
