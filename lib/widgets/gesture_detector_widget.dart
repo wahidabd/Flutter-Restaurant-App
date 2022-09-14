@@ -10,7 +10,7 @@ Widget gestureDetectorWidget(BuildContext context, Restaurant restaurant) {
       Navigator.pushNamed(
         context,
         RestaurantDetail.routeName,
-        arguments: restaurant,
+        arguments: restaurant.id,
       );
     },
     child: Column(

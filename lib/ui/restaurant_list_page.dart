@@ -19,9 +19,9 @@ class RestaurantListPage extends StatelessWidget {
         }else if (state.state == ResultState.hasData){
           return ListView.builder(
             shrinkWrap: true,
-            itemCount: state.restaurant.restaurants.length,
+            itemCount: state.restaurants.restaurants.length,
             itemBuilder: (context, index){
-              var restaurant = state.restaurant.restaurants[index];
+              var restaurant = state.restaurants.restaurants[index];
               return gestureDetectorWidget(context, restaurant);
             },
           );
