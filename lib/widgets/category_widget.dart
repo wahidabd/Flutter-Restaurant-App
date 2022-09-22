@@ -21,7 +21,7 @@ Widget categoryWidget(BuildContext context, Restaurant restaurant) {
           ),
           child: Text(
             data.name,
-            style: const TextStyle(color: primaryColor),
+            style: const TextStyle(color: primaryColor, fontSize: 14),
             textAlign: TextAlign.justify,
           ),
         );

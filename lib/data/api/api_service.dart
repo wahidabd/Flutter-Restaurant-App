@@ -25,4 +25,13 @@ class ApiService {
     }
   }
 
+  Future<ResponseRestaurantList> getSearch(String q) async {
+    final response = await http.get(Uri.parse("${Constants.BASE_URL}search?q=$q"));
+    if (response.statusCode == 200){
+      return ResponseRestaurantList.fromJson(json.decode(response.body));
+    }else{
+      throw Exception('Failed to load API!');
+    }
+  }
+
 }

@@ -137,7 +137,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ChangeNotifierProvider<RestaurantProvider>(
-        create: (_) => RestaurantProvider(api: ApiService(), id: widget.restaurantId),
+        create: (_) => RestaurantProvider(id: widget.restaurantId),
         child: _buildPage(),
     ));
   }

@@ -10,9 +10,10 @@ Widget stackWidget(BuildContext context, Restaurant restaurant) {
         padding: const EdgeInsets.only(left: 10.0),
         height: MediaQuery.of(context).size.height * 0.5,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(restaurant.getMediumImage()),
-                fit: BoxFit.cover)),
+          image: DecorationImage(
+              image: NetworkImage(restaurant.getMediumImage()),
+              fit: BoxFit.cover),
+        ),
       ),
       Container(
         height: MediaQuery.of(context).size.height * 0.5,
@@ -21,8 +22,8 @@ Widget stackWidget(BuildContext context, Restaurant restaurant) {
         decoration: const BoxDecoration(color: primaryColorOpacity),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 80),
             const Icon(
               Icons.location_city_outlined,
               color: Colors.white,

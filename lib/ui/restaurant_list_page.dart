@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_restaurant/data/api/api_service.dart';
 import 'package:my_restaurant/provider/restaurant_provider.dart';
+import 'package:my_restaurant/ui/search_page.dart';
 import 'package:my_restaurant/utils/styles.dart';
-import 'package:provider/provider.dart';
 import 'package:my_restaurant/widgets/gesture_detector_widget.dart';
+import 'package:provider/provider.dart';
 
 class RestaurantListPage extends StatelessWidget {
 
@@ -56,12 +56,22 @@ class RestaurantListPage extends StatelessWidget {
           'Restaurant',
           style: TextStyle(color: primaryColor),
         ),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pushNamed(
+              context,
+              SearchPage.routeName
+            ),
+            icon: const Icon(Icons.search),
+            color: primaryColor,
+          ),
+        ],
         backgroundColor: Colors.white,
         elevation: 0.1,
         centerTitle: true,
       ),
       body: ChangeNotifierProvider<RestaurantProvider>(
-        create: (_) => RestaurantProvider(api: ApiService()),
+        create: (_) => RestaurantProvider(),
         child: _buildList(),
       ),
     );
